@@ -1,9 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from schemas import OrderCreate, Order, OrderStatus, OrderFilter, OrderSort
-from services import create_order, get_orders, get_order, update_order_status
-from database import get_db
-from security import verify_token
+from orders.schemas import OrderCreate, Order, OrderStatus, OrderFilter, OrderSort
+from orders.services import create_order, get_orders, get_order, update_order_status
+from orders.database import get_db
+from orders.security import verify_token
 from fastapi.security import OAuth2PasswordBearer, APIKeyHeader
 from typing import List
 

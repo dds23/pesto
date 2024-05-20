@@ -1,7 +1,7 @@
 from fastapi import HTTPException
 from sqlalchemy.orm import Session
-from models import Order, OrderItem, Product
-from schemas import OrderCreate, OrderStatus, OrderFilter, OrderSort
+from orders.models import Order, OrderItem, Product
+from orders.schemas import OrderCreate, OrderStatus, OrderFilter, OrderSort
 
 
 enum_table_name_mapping = {

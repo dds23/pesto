@@ -1,8 +1,8 @@
 from fastapi import HTTPException
 from sqlalchemy.orm import Session
-from models import User
-from schemas import UserCreate, UserLogin
-from security import get_password_hash, verify_password, create_access_token
+from auth.models import User
+from auth.schemas import UserCreate, UserLogin
+from auth.security import get_password_hash, verify_password, create_access_token
 
 
 def register_user(db: Session, user_data: UserCreate):

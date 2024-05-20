@@ -1,8 +1,8 @@
 from fastapi import FastAPI
-from routes import router as order_router
-from database import engine
-from models import Base
-from config import settings
+from orders.routes import router as order_router
+from orders.database import engine
+from orders.models import Base
+from orders.config import settings
 
 Base.metadata.create_all(bind=engine)
 

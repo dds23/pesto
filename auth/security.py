@@ -1,7 +1,7 @@
 from passlib.context import CryptContext
 from datetime import datetime, timedelta, UTC
 from jose import jwt
-from config import settings
+from auth.config import settings
 
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 

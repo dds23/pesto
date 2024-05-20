@@ -2,6 +2,7 @@ The repository is divided into three different microservices.
 1. User authentication
 2. Product management
 3. Order processing
+4. Task management
 
 Things to do after taking pull of this repository:
 
@@ -15,8 +16,8 @@ Things to do after taking pull of this repository:
 
 5. A .env file has to made outside all the folders of the microservices. It will have `DATABASE_URL` in the format `postgresql://{username}:{password}@{ip_address}:{port}/{database_name}`
 
-6. Run the microservices. They can be run in 3 seperate shells or in a sequential manner. To run use the commands, 
-`python3 auth/main.py`, `python3 products/main.py`, `python3 orders/main.py`.
+6. Run the microservices. They can be run in 4 seperate shells or in a sequential manner. To run use the commands, 
+`python3 auth/main.py`, `python3 products/main.py`, `python3 orders/main.py`, `python3 tasks/main.py`.
 
 7. Generate a secret key using the command `openssl rand -hex 32` outside of the path where servers might be running. Copy the ouput and replace it in the `config.py` file in all 3 microservices.
 
@@ -44,3 +45,7 @@ A very detailed detailed and thorough error handling and validation checks have 
 Product creation has checks that title and description of product are atleast of a certain length after being trimmed of any extra whitespaces and valid errors are thrown to handle this.
 
 Feature implemented to have sorting of products based on either their name or their price in ascending or descending order based on the user input.
+
+Form provided to add a new task that includes fields for title, description, and status.
+
+Functionality provided for updating task status and deleting tasks.
