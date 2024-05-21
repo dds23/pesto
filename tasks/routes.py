@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
-from schemas import TaskCreate, TaskUpdate, Task, TaskSort
+from schemas import TaskCreate, TaskUpdate, Task, TaskSort, TaskFilter
 from services import create_task, get_tasks, get_task, update_task, delete_task
 from database import get_db
 from security import verify_token
@@ -27,8 +27,8 @@ async def create(task_data: TaskCreate, db: Session = Depends(get_db), _=Depends
 
 # Fetches all tasks stored in the system
 @router.get("/", response_model=list[Task])
-async def list_tasks(sort_by: TaskSort, db: Session = Depends(get_db), _=Depends(get_current_user)):
-    return get_tasks(db, sort_by)
+async def list_tasks(filter_by: TaskFilter, sort_by: TaskSort, db: Session = Depends(get_db), _=Depends(get_current_user)):
+    return get_tasks(db, sort_by, filter_by)
 
 
 # Fetch a specific task

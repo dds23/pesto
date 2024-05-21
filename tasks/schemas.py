@@ -10,6 +10,15 @@ class TaskStatus(str, Enum):
     Completed = 'Completed'
 
 
+class TaskFilter(str, Enum):
+    All = 'All'
+    InDraft = 'InDraft'
+    Created = 'Created'
+    OnHold = 'OnHold'
+    InProgress = 'InProgress'
+    Completed = 'Completed'
+
+
 class TaskBase(BaseModel):
     title: str
     description: str
@@ -55,3 +64,5 @@ class Task(TaskBase):
 class TaskSort(str, Enum):
     Title_A_to_Z = 'Title_A_to_Z'
     Title_Z_to_A = 'Title_Z_to_A'
+    Status_A_to_Z = 'Status_A_to_Z'
+    Status_Z_to_A = 'Status_Z_to_A'

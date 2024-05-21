@@ -1,7 +1,7 @@
 from fastapi import HTTPException
 from sqlalchemy.orm import Session
 from models import Task
-from schemas import TaskCreate, TaskUpdate, TaskSort
+from schemas import TaskCreate, TaskUpdate, TaskSort, TaskFilter
 
 
 # Function to add a new task
@@ -17,17 +17,25 @@ def create_task(db: Session, task_data: TaskCreate):
 
 
 # Fetch all tasks
-def get_tasks(db: Session, sort_by: TaskSort):
+def get_tasks(db: Session, sort_by: TaskSort, filter_by: TaskFilter):
     '''
         This will sort the task results based on name in ascending or
         descending manner based on the input provided.
     '''
     query = db.query(Task).filter(Task.version != 0)
+
+    if filter_by != TaskFilter.All:
+        query = query.filter_by(Task.status == filter_by)
+
     if sort_by == TaskSort.Title_A_to_Z:
         query = query.order_by(Task.title.asc())
-    else:
+    elif sort_by == TaskSort.Title_Z_to_A:
         query = query.order_by(Task.title.desc())
-    
+    elif sort_by == TaskSort.Status_A_to_Z:
+        query = query.order_by(Task.status.asc())
+    else:
+        query = query.order_by(Task.status.desc())
+
     return query.all()
 
 

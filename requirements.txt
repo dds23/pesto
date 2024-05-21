@@ -7,3 +7,4 @@ passlib
 SQLAlchemy
 psycopg2
 pytest
+fastapi-limiter

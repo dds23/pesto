@@ -49,3 +49,9 @@ Feature implemented to have sorting of products based on either their name or th
 Form provided to add a new task that includes fields for title, description, and status.
 
 Functionality provided for updating task status and deleting tasks.
+
+Task sorting based on status and Task filtering based on different status has been implemented.
+
+API Rate Limiting and validation checks have been implemented for preventing abuse.
+
+The application ensures that user interactions are smooth and responsive across all platforms.
